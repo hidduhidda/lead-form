@@ -5,7 +5,6 @@
 <title>Masood Motors | Contact Us</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  /* Full-page Background */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -15,17 +14,15 @@
     background: url('images/camry.jpg') no-repeat center center fixed;
     background-size: cover;
   }
-  /* Overlay for lighter background */
   body::before {
     content: "";
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(255,255,255,0.6); /* adjust opacity here */
+    background: rgba(255,255,255,0.6);
     z-index: 0;
   }
 
-  /* Header / Navbar */
   header {
     position: relative;
     z-index: 2;
@@ -39,26 +36,29 @@
   header h1 { margin: 0; font-size: 1.8em; color: #0070d2; }
   nav a { margin-left: 20px; font-weight: bold; color: #555; }
 
-  /* Hero Section */
   .hero {
     display: flex;
     flex-wrap: wrap;
     min-height: 80vh;
     position: relative;
     z-index: 2;
+    padding: 30px;
+    gap: 20px;
   }
 
-  /* Left Side: Car Models */
+  /* Hero Left: Car Models Grid */
   .hero-left {
     flex: 1;
-    background: rgba(255,255,255,0.85); /* slightly transparent for contrast */
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: rgba(255,255,255,0.85);
+    padding: 20px;
     border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-content: start;
   }
   .hero-left h2 {
+    grid-column: span 3;
     text-align: center;
     color: #0070d2;
     margin-bottom: 20px;
@@ -67,33 +67,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
     text-align: center;
-  }
-  .car-card img {
-    width: 200px;
-    height: 120px;
-    object-fit: cover;
+    background: #f9f9f9;
+    padding: 10px;
     border-radius: 8px;
-    margin-bottom: 8px;
+    transition: transform 0.3s;
   }
-  .car-card h3 { margin: 0; color: #0070d2; }
+  .car-card:hover { transform: translateY(-5px); }
+  .car-card img { width: 100%; height: 100px; object-fit: cover; border-radius: 6px; margin-bottom: 8px; }
+  .car-card h3 { margin: 0; color: #0070d2; font-size: 1em; }
   .car-card a {
     display: inline-block;
     margin-top: 5px;
-    padding: 6px 12px;
+    padding: 6px 10px;
     background: #0070d2;
     color: #fff;
     border-radius: 6px;
+    font-size: 0.9em;
     transition: background 0.3s;
   }
   .car-card a:hover { background: #005bb5; }
 
-  /* Right Side: Contact Form */
+  /* Hero Right: Contact Form */
   .hero-right {
     flex: 1;
     background: rgba(255,255,255,0.95);
-    padding: 40px 30px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,10 +119,13 @@
   }
   input[type="submit"]:hover { background: #005bb5; }
 
-  /* Responsive */
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
+    .hero-left { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 800px) {
     .hero { flex-direction: column; }
-    .hero-left, .hero-right { width: 100%; margin-bottom: 20px; }
+    .hero-left, .hero-right { width: 100%; }
+    .hero-left { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -207,7 +209,7 @@
       <label for="phone">Phone</label>
       <input  id="phone" maxlength="40" name="phone" size="20" type="text" required />
 
-      <label for="00NgL00001QZCGw">Product Interest</label>
+       <label for="00NgL00001QZCGw">Product Interest</label>
       <select id="00NgL00001QZCGw" name="00NgL00001QZCGw" required>
         <option value="">--Select a Model--</option>
         <option value="Yaris">Yaris</option>
@@ -234,6 +236,10 @@
         <option value="AU">Australia</option>
       </select>
 
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
 
-
-      <input type="submit" value
+</body>
+</html>
