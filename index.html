@@ -2,41 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lead Capture Form</title>
+  <title>Masood Motors | Contact Us</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* Global Styles */
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f7f9;
+      color: #333;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Header / Navbar */
+    header {
+      background-color: #fff;
+      padding: 15px 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      height: 100vh;
-      margin: 0;
     }
-    form {
+    header h1 { margin: 0; font-size: 1.8em; color: #0070d2; }
+    nav a { margin-left: 20px; font-weight: bold; color: #555; }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 80vh;
+    }
+    .hero-left {
+      flex: 1;
+      background: url('images/camry.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 30px;
+    }
+    .hero-left h2 {
+      font-size: 3em;
+      line-height: 1.2;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .hero-right {
+      flex: 1;
       background: #fff;
-      padding: 20px 30px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.05);
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
+    .hero-right h2 { text-align: center; margin-bottom: 20px; color: #0070d2; }
+
+    label { display: block; margin-top: 10px; font-weight: bold; }
     input, select {
       width: 100%;
-      padding: 8px;
-      margin-top: 4px;
+      padding: 10px;
+      margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 6px;
+      box-sizing: border-box;
     }
     input[type="submit"] {
       margin-top: 20px;
@@ -45,64 +74,123 @@
       border: none;
       cursor: pointer;
       font-weight: bold;
+      transition: background 0.3s;
     }
-    input[type="submit"]:hover {
-      background: #005bb5;
+    input[type="submit"]:hover { background: #005bb5; }
+
+    /* Car Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 30px;
+      background: #fff;
+    }
+    .car-card {
+      background: #f9f9f9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .car-card:hover { transform: translateY(-5px); }
+    .car-card img { width: 100%; height: 180px; object-fit: cover; }
+    .car-card h3 { margin: 10px 0; color: #0070d2; }
+    .car-card a {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background: #0070d2;
+      color: #fff;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .car-card a:hover { background: #005bb5; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; }
+      .hero-left, .hero-right { flex: none; width: 100%; box-shadow: none; }
     }
   </style>
 </head>
 <body>
 
-  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgL00000AU7EP" method="POST">
-    <input type="hidden" name="oid" value="00DgL00000AU7EP">
-    <input type="hidden" name="retURL" value="https://hidduhidda.github.io/lead-form/thank-you.html">
+<header>
+  <h1>Masood Motors</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Models</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
 
-    <h2>Get in Touch</h2>
+<div class="hero">
+  <div class="hero-left">
+    <h2>Find Your Dream Toyota Today!</h2>
+  </div>
+  <div class="hero-right">
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgL00000AU7EP" method="POST">
+      <input type="hidden" name="oid" value="00DgL00000AU7EP">
+      <input type="hidden" name="retURL" value="https://hidduhidda.github.io/lead-form/thank-you.html">
+      <h2>Get in Touch</h2>
 
-    <label for="first_name">First Name</label>
-    <input id="first_name" name="first_name" type="text" maxlength="40" required>
+      <label for="first_name">First Name</label>
+      <input id="first_name" name="first_name" type="text" maxlength="40" required>
 
-    <label for="last_name">Last Name</label>
-    <input id="last_name" name="last_name" type="text" maxlength="80" required>
+      <label for="last_name">Last Name</label>
+      <input id="last_name" name="last_name" type="text" maxlength="80" required>
 
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" maxlength="80" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" maxlength="80" required>
 
-    <label for="company">Company</label>
-    <input id="company" name="company" type="text" maxlength="40">
+      <label for="company">Company</label>
+      <input id="company" name="company" type="text" maxlength="40">
 
-    <label for="city">City</label>
-    <input id="city" name="city" type="text" maxlength="40">
+      <label for="city">City</label>
+      <input id="city" name="city" type="text" maxlength="40">
 
-    <label for="country_code">Country</label>
-    <select id="country_code" name="country_code" required>
-      <option value="">-- Select Country --</option>
-      <option value="US">United States</option>
-      <option value="IN">India</option>
-      <option value="GB">United Kingdom</option>
-      <option value="CA">Canada</option>
-      <option value="AU">Australia</option>
-    </select>
-    
-  <label for="00NgL00001QZCGw">Product Interest</label>
-  <select id="00NgL00001QZCGw" name="00NgL00001QZCGw" title="Product Interest" required>
-    <option value="">--Select a Model--</option>
-    <option value="Yaris">Yaris</option>
-    <option value="Corolla">Corolla</option>
-    <option value="Camry">Camry</option>
-    <option value="Crown">Crown</option>
-    <option value="GR86">GR86</option>
-    <option value="RAIZE">RAIZE</option>
-    <option value="Urban Cruiser">Urban Cruiser</option>
-    <option value="Veloz">Veloz</option>
-    <option value="Hilux">Hilux</option>
-  </select><br>
+      <label for="country_code">Country</label>
+      <select id="country_code" name="country_code" required>
+        <option value="">--Select Country--</option>
+        <option value="US">United States</option>
+        <option value="IN">India</option>
+        <option value="GB">United Kingdom</option>
+        <option value="CA">Canada</option>
+        <option value="AU">Australia</option>
+      </select>
 
-    
-    <input type="submit" value="Submit">
-  </form>
+      <label for="00NgL00001QZCGw">Product Interest</label>
+      <select id="00NgL00001QZCGw" name="00NgL00001QZCGw" required>
+        <option value="">--Select a Model--</option>
+        <option value="Yaris">Yaris</option>
+        <option value="Corolla">Corolla</option>
+        <option value="Camry">Camry</option>
+        <option value="Crown">Crown</option>
+        <option value="GR86">GR86</option>
+        <option value="RAIZE">RAIZE</option>
+        <option value="Urban Cruiser">Urban Cruiser</option>
+        <option value="Veloz">Veloz</option>
+        <option value="Hilux">Hilux</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+
+<section class="gallery">
+  <div class="car-card"><img src="images/yaris.jpg" alt="Yaris"><h3>Yaris</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/corolla.jpg" alt="Corolla"><h3>Corolla</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/camry.jpg" alt="Camry"><h3>Camry</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/crown.jpg" alt="Crown"><h3>Crown</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/gr86.jpg" alt="GR86"><h3>GR86</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/raize.jpg" alt="RAIZE"><h3>RAIZE</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/urban-cruiser.jpg" alt="Urban Cruiser"><h3>Urban Cruiser</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/veloz.jpg" alt="Veloz"><h3>Veloz</h3><a href="#hero">Contact Us</a></div>
+  <div class="car-card"><img src="images/hilux.jpg" alt="Hilux"><h3>Hilux</h3><a href="#hero">Contact Us</a></div>
+</section>
 
 </body>
-
 </html>
-
