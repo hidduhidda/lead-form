@@ -127,6 +127,14 @@
     .hero-left, .hero-right { width: 100%; }
     .hero-left { grid-template-columns: 1fr; }
   }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  .form-field {
+    flex: 1;
+  }
 </style>
 </head>
 <body>
@@ -197,60 +205,84 @@
       <input type="hidden" name="retURL" value="https://hidduhidda.github.io/lead-form/thank-you.html">
       <h2>Get in Touch</h2>
 
-      <label for="first_name">First Name</label>
-      <input id="first_name" name="first_name" type="text" maxlength="40" required>
+		<div class="form-row">
+		  <div class="form-field">
+			<label for="first_name">First Name</label>
+			<input id="first_name" name="first_name" type="text" maxlength="40" required>
+		  </div>
+		  <div class="form-field">
+			<label for="last_name">Last Name</label>
+			<input id="last_name" name="last_name" type="text" maxlength="80" required>
+		  </div>
+		</div>
 
-      <label for="last_name">Last Name</label>
-      <input id="last_name" name="last_name" type="text" maxlength="80" required>
+		<label for="email">Email</label>
+		<input id="email" name="email" type="email" maxlength="80" required>
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" maxlength="80" required>
+		<label for="phone">Phone</label>
+		<input id="phone" maxlength="40" name="phone" size="20" type="text" required />
 
-      <label for="phone">Phone</label>
-      <input  id="phone" maxlength="40" name="phone" size="20" type="text" required />
+		<!-- Customer Type + Company -->
+		<div class="form-row">
+		  <div class="form-field">
+			<label for="00NgL00001gT2Ab">Customer Type</label>
+			<select id="00NgL00001gT2Ab" name="00NgL00001gT2Ab" required onchange="toggleCompanyField()">
+			  <option value="">--Select--</option>
+			  <option value="Individual">Individual</option>
+			  <option value="Corporate">Corporate</option>
+			</select>
+		  </div>
+		  <div class="form-field" id="company-field">
+			<label for="company">Company</label>
+			<input id="company" name="company" type="text" maxlength="40" value="Self">
+		  </div>
+		</div>
 
-      <label for="company">Company</label>
-      <input id="company" name="company" type="text" maxlength="40">
-
-       <label for="00NgL00001QZCGw">Preferred Model</label>
-      <select id="00NgL00001QZCGw" name="00NgL00001QZCGw" required>
-	  <option value="">--Select Model/Variant--</option>
-	  <option value="Toyota Yaris Y">Toyota Yaris Y</option>
-	  <option value="Toyota Yaris (Local variants)">Toyota Yaris (Local variants)</option>
-	  <option value="Toyota Corolla XLI">Toyota Corolla XLI</option>
-	  <option value="Toyota Corolla LE">Toyota Corolla LE</option>
-	  <option value="Toyota Corolla Hybrid">Toyota Corolla Hybrid</option>
-	  <option value="Toyota Corolla (Other variants)">Toyota Corolla (Other variants)</option>
-	  <option value="Toyota Camry Standard">Toyota Camry Standard</option>
-	  <option value="Toyota Camry Hybrid GLE HEV">Toyota Camry Hybrid GLE HEV</option>
-	  <option value="Toyota Crown 2023 Petrol">Toyota Crown 2023 Petrol</option>
-	  <option value="Toyota Crown 2023 Hybrid">Toyota Crown 2023 Hybrid</option>
-	  <option value="Toyota Crown 2024 Petrol">Toyota Crown 2024 Petrol</option>
-	  <option value="Toyota Crown 2024 Hybrid">Toyota Crown 2024 Hybrid</option>
-	  <option value="Toyota GR86 Performance">Toyota GR86 Performance</option>
-	  <option value="Toyota RAIZE Standard">Toyota RAIZE Standard</option>
-	  <option value="Toyota Urban Cruiser">Toyota Urban Cruiser</option>
-	  <option value="Toyota Veloz GLX">Toyota Veloz GLX</option>
-	  <option value="Toyota Veloz (Other trims)">Toyota Veloz (Other trims)</option>
-	  <option value="Toyota Hilux Double Cab">Toyota Hilux Double Cab</option>
-	  <option value="Toyota Hilux Standard Cab">Toyota Hilux Standard Cab</option>
-	  <option value="Toyota Hilux 4x4">Toyota Hilux 4x4</option>
-      </select>
-
-      <label for="city">City</label>
-        <select id="city" name="city" required>
-		  <option value="">--Select City--</option>
-		  <option value="Riyadh">Riyadh</option>
-		  <option value="Jeddah">Jeddah</option>
-		  <option value="Mecca">Mecca</option>
-		  <option value="Medina">Medina</option>
-		  <option value="Dammam">Dammam</option>
+		<label for="00NgL00001QZCGw">Preferred Model</label>
+		<select id="00NgL00001QZCGw" name="00NgL00001QZCGw" required>
+		  <option value="">--Select Model/Variant--</option>
+		  <option value="Toyota Yaris Y">Toyota Yaris Y</option>
+		  <option value="Toyota Yaris (Local variants)">Toyota Yaris (Local variants)</option>
+		  <option value="Toyota Corolla XLI">Toyota Corolla XLI</option>
+		  <option value="Toyota Corolla LE">Toyota Corolla LE</option>
+		  <option value="Toyota Corolla Hybrid">Toyota Corolla Hybrid</option>
+		  <option value="Toyota Corolla (Other variants)">Toyota Corolla (Other variants)</option>
+		  <option value="Toyota Camry Standard">Toyota Camry Standard</option>
+		  <option value="Toyota Camry Hybrid GLE HEV">Toyota Camry Hybrid GLE HEV</option>
+		  <option value="Toyota Crown 2023 Petrol">Toyota Crown 2023 Petrol</option>
+		  <option value="Toyota Crown 2023 Hybrid">Toyota Crown 2023 Hybrid</option>
+		  <option value="Toyota Crown 2024 Petrol">Toyota Crown 2024 Petrol</option>
+		  <option value="Toyota Crown 2024 Hybrid">Toyota Crown 2024 Hybrid</option>
+		  <option value="Toyota GR86 Performance">Toyota GR86 Performance</option>
+		  <option value="Toyota RAIZE Standard">Toyota RAIZE Standard</option>
+		  <option value="Toyota Urban Cruiser">Toyota Urban Cruiser</option>
+		  <option value="Toyota Veloz GLX">Toyota Veloz GLX</option>
+		  <option value="Toyota Veloz (Other trims)">Toyota Veloz (Other trims)</option>
+		  <option value="Toyota Hilux Double Cab">Toyota Hilux Double Cab</option>
+		  <option value="Toyota Hilux Standard Cab">Toyota Hilux Standard Cab</option>
+		  <option value="Toyota Hilux 4x4">Toyota Hilux 4x4</option>
 		</select>
 
-      <label for="country_code">Country</label>
-      <select id="country_code" name="country_code" required>
-        <option value="SA">Saudi Arabia</option>
-      </select>
+		<!-- City + Country -->
+		<div class="form-row">
+		  <div class="form-field">
+			<label for="city">City</label>
+			<select id="city" name="city" required>
+			  <option value="">--Select City--</option>
+			  <option value="Riyadh">Riyadh</option>
+			  <option value="Jeddah">Jeddah</option>
+			  <option value="Mecca">Mecca</option>
+			  <option value="Medina">Medina</option>
+			  <option value="Dammam">Dammam</option>
+			</select>
+		  </div>
+		  <div class="form-field">
+			<label for="country_code">Country</label>
+			<select id="country_code" name="country_code" required>
+			  <option value="SA">Saudi Arabia</option>
+			</select>
+		  </div>
+		</div>
 
       <input type="submit" value="Submit">
     </form>
@@ -258,4 +290,18 @@
 </div>
 
 </body>
+
+<script>
+function toggleCompanyField() {
+  const type = document.getElementById("00NgL00001gT2Ab").value;
+  const companyInput = document.getElementById("company");
+  if (type === "Individual") {
+    companyInput.value = "Self";
+    companyInput.readOnly = true;
+  } else {
+    companyInput.value = "";
+    companyInput.readOnly = false;
+  }
+}
+</script>
 </html>
