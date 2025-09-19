@@ -295,13 +295,16 @@
 function toggleCompanyField() {
   const type = document.getElementById("00NgL00001gT2Ab").value;
   const companyInput = document.getElementById("company");
-  if (type === "Individual") {
-    companyInput.value = "Self";
-    companyInput.readOnly = true;
+
+  if (type === "Corporate") {
+    companyInput.required = true; // required for Corporate
+    companyInput.readOnly = false;
   } else {
+    companyInput.required = false; // not required otherwise
     companyInput.value = "";
     companyInput.readOnly = false;
   }
 }
 </script>
 </html>
+
